@@ -3,19 +3,21 @@ require('dotenv').config();
 // require express
 const express = require('express');
 
+const  myBookRoues = require('./routes/myBooks');
+
 // express app
 const app = express();
 
 // middleware
+app.use(express.json())
+
 app.use((req, res,next) => {
     console.log(req.path, req.method)
     next();
 });
 
 // routes
-app.get('/', (req, res) => {
-    res.json({mssg: "Welcome to the app"});
-})
+app.use('/api/myBooks', myBookRoues)
 
 // listen for request
 app.listen(process.env.PORT, () => {
