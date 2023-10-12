@@ -4,7 +4,9 @@ const express = require('express');
 const {
     createMyBook,
     getMyBooks,
-    getMyBook
+    getMyBook,
+    deleteMyBook,
+    updateMyBook
 } = require('../controllers/myBookController')
 
 
@@ -21,13 +23,9 @@ router.get('/:id', getMyBook)
 router.post('/', createMyBook)
 
 // Delete a new book
-router.delete('/:id', (req, res) => {
-    res.json({mssg: "Delete a new book"})
-})
+router.delete('/:id', deleteMyBook)
 
 // Update a new book
-router.patch('/:id', (req, res) => {
-    res.json({mssg: "Update a new book"})
-})
+router.patch('/:id', updateMyBook)
 
 module.exports = router
