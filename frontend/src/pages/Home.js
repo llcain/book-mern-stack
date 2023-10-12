@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 // components 
 import MyBooksDetails from "../components/MyBooksDetails"
+import MyBooksForm from "../components/MyBooksForm"
 
 const Home = () => {
 
@@ -27,6 +28,7 @@ const Home = () => {
                     <MyBooksDetails key={myBook._id} myBook={myBook} />
                 ))}
             </div>
+            <MyBooksForm />
         </div>
     )
 }
