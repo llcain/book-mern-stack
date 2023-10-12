@@ -1,8 +1,11 @@
 // require express route
 const express = require('express');
 
-// require MyBooksModel
-const MyBook = require('../models/MyBookModel')
+const {
+    createMyBook
+} = require('../controllers/myBookController')
+
+
 
 const router = express.Router()
 
@@ -17,16 +20,7 @@ router.get('/:id', (req, res) => {
 })
 
 // Post a new book
-router.post('/', async (req, res) => {
-    const {title, author, genre} = req.body
-
-    try {
-        const myBooks = await MyBook.create({title, author, genre})
-        res.status(200).json(myBooks)
-    } catch (error) {
-        res.status(400).json({error: error.message})
-    }    
-})
+router.post('/', createMyBook)
 
 // Delete a new book
 router.delete('/:id', (req, res) => {
