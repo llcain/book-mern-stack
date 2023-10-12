@@ -1,6 +1,9 @@
 // require express route
 const express = require('express');
 
+// require MyBooksModel
+const MyBook = require('../models/MyBookModel')
+
 const router = express.Router()
 
 // get all books
@@ -14,8 +17,15 @@ router.get('/:id', (req, res) => {
 })
 
 // Post a new book
-router.post('/', (req, res) => {
-    res.json({mssg: "Post a new book"})
+router.post('/', async (req, res) => {
+    const {title, author, genre} = req.body
+
+    try {
+        const myBooks = await MyBook.create({title, author, genre})
+        res.status(200).json(myBooks)
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }    
 })
 
 // Delete a new book
