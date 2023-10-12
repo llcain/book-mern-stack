@@ -2,7 +2,9 @@
 const express = require('express');
 
 const {
-    createMyBook
+    createMyBook,
+    getMyBooks,
+    getMyBook
 } = require('../controllers/myBookController')
 
 
@@ -10,14 +12,10 @@ const {
 const router = express.Router()
 
 // get all books
-router.get('/', (req, res) => {
-    res.json({mssg: "Get all books"})
-})
+router.get('/', getMyBooks)
 
 // Get a single book
-router.get('/:id', (req, res) => {
-    res.json({mssg: "Get a single book"})
-})
+router.get('/:id', getMyBook)
 
 // Post a new book
 router.post('/', createMyBook)
