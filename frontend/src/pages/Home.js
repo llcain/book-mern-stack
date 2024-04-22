@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react";
+import { useMyBooksContext } from "../hooks/useMyBooksContext";
 
 // components 
 import MyBooksDetails from "../components/MyBooksDetails"
@@ -6,7 +7,7 @@ import MyBooksForm from "../components/MyBooksForm"
 
 const Home = () => {
 
-    const [myBooks, setMyBooks] = useState(null)
+    const {myBooks, dispatch} = useMyBooksContext()
 
     useEffect(() => {
         const fetchMyBooks = async () => {
@@ -14,7 +15,7 @@ const Home = () => {
             const json = await response.json()
 
             if (response.ok) {
-                setMyBooks(json)
+                dispatch({type: 'SET_MYBOOKS', payload: json})
             }
         }
 

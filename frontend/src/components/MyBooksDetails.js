@@ -9,4 +9,4 @@ const MyBooksDetails = ({ myBook }) => {
     )
 }
 
-export default MyBooksDetails
+export default MyBooksDetails;

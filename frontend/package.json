@@ -1,5 +1,8 @@
 {
   "proxy": "http://127.0.0.1:4100/api/mybooks",
+  "allowedHosts": [
+    "127.0.0.1"
+  ],
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
