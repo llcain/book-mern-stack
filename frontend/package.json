@@ -1,5 +1,5 @@
 {
-  "proxy": "http://127.0.0.1:4100/api/mybooks",
+  "proxy": "http://127.0.0.1:4100/api/myBooks/",
   "allowedHosts": [
     "127.0.0.1"
   ],
@@ -17,7 +17,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently node start npm run client",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

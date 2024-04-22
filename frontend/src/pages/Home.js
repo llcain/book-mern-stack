@@ -20,7 +20,7 @@ const Home = () => {
         }
 
         fetchMyBooks()
-    }, [])
+    }, [dispatch])
 
     return (
         <div className="home">
